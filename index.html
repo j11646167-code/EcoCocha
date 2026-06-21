@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<div id="confetti-container"></div>
+
 <div class="contenedor">
 
   <img src="logo.jpg" class="logo">
@@ -15,21 +17,41 @@
   <h1>🌎 ECOCOCHA</h1>
   <h2>♻️ Recicla y gana EcoCoins</h2>
 
+  <div class="mascota-card">
+    <div id="mascota">🌱</div>
+    <div class="mascota-info">
+      <h3>Tu árbol: <span id="estadoArbol">Brote</span></h3>
+      <h3>🔥 Racha: <span id="racha">0</span> días</h3>
+    </div>
+  </div>
+
   <div class="perfil">
     <h3>👤 Usuario: Invitado</h3>
     <h3>💰 EcoCoins: <span id="coins">0</span></h3>
     <h3>🌱 Nivel: <span id="nivel">EcoNovato</span></h3>
+
+    <div class="barra-progreso">
+      <div class="barra-fill" id="barraFill"></div>
+    </div>
+    <p class="barra-texto" id="barraTexto">0 / 200 hacia EcoExplorador</p>
   </div>
 
   <div class="botonera">
     <button onclick="init()">📷 Abrir Cámara</button>
     <button class="secundario" onclick="abrirModal()">ℹ️ Cómo funciona</button>
-    <button class="peligro" onclick="reiniciarProgreso()">🔄 Reiniciar progreso</button>
+    <button class="secundario" onclick="compartir()">📤 Compartir</button>
+    <button class="peligro" onclick="reiniciarProgreso()">🔄 Reiniciar</button>
   </div>
 
   <div id="webcam-container"></div>
 
   <h2 id="label-container">Esperando detección...</h2>
+
+  <div class="impacto">
+    <h3>🌍 Impacto ambiental</h3>
+    <p>Has evitado que aprox. <strong id="impactoKg">0</strong> kg de basura lleguen a la calle.</p>
+    <p>📅 Reciclado hoy: <strong id="hoyCount">0</strong> residuos</p>
+  </div>
 
   <div class="historial">
     <h3>📊 Historial</h3>
@@ -38,7 +60,7 @@
 
   <div class="insignias">
     <h3>🏆 Insignias</h3>
-    <p id="insignia">Aún no tienes insignias.</p>
+    <div class="insignias-grid" id="insigniasGrid"></div>
   </div>
 
 </div>
@@ -51,6 +73,7 @@
        🍾 Metales y vidrio: 70 EcoCoins<br>
        📦 Papeles y cartones: 50 EcoCoins<br>
        🍌 Orgánicos: 30 EcoCoins</p>
+    <p>🔥 Clasifica tu basura todos los días para mantener tu racha y hacer crecer tu árbol.</p>
     <button onclick="cerrarModal()">Entendido</button>
   </div>
 </div>
@@ -60,4 +83,4 @@
 <script src="script.js"></script>
 
 </body>
-</html>
+</html> 
