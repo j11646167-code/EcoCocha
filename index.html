@@ -21,15 +21,15 @@
     <h3>🌱 Nivel: <span id="nivel">EcoNovato</span></h3>
   </div>
 
-  <button onclick="init()">
-    📷 Abrir Cámara
-  </button>
+  <div class="botonera">
+    <button onclick="init()">📷 Abrir Cámara</button>
+    <button class="secundario" onclick="abrirModal()">ℹ️ Cómo funciona</button>
+    <button class="peligro" onclick="reiniciarProgreso()">🔄 Reiniciar progreso</button>
+  </div>
 
   <div id="webcam-container"></div>
 
-  <h2 id="label-container">
-    Esperando detección...
-  </h2>
+  <h2 id="label-container">Esperando detección...</h2>
 
   <div class="historial">
     <h3>📊 Historial</h3>
@@ -41,6 +41,18 @@
     <p id="insignia">Aún no tienes insignias.</p>
   </div>
 
+</div>
+
+<div class="modal-overlay" id="modalInfo">
+  <div class="modal">
+    <h3>¿Cómo funciona EcoCocha?</h3>
+    <p>Muestra un residuo a la cámara y el sistema lo identifica automáticamente.</p>
+    <p>🥤 Plásticos: 100 EcoCoins<br>
+       🍾 Metales y vidrio: 70 EcoCoins<br>
+       📦 Papeles y cartones: 50 EcoCoins<br>
+       🍌 Orgánicos: 30 EcoCoins</p>
+    <button onclick="cerrarModal()">Entendido</button>
+  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>

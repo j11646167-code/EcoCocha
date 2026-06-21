@@ -47,7 +47,7 @@ async function predict() {
 
         if (mayor.className === "NINGUNO") {
             document.getElementById("label-container").innerHTML =
-                "🚫 No se detectó ningún residuo";
+                "🚫 No se detectó un residuo reciclable";
         } else {
             document.getElementById("label-container").innerHTML =
                 "♻️ " + mayor.className;
@@ -99,4 +99,25 @@ function actualizarNivel() {
     if (ecoCoins >= 2000) nivel = "👑 EcoLeyenda";
 
     document.getElementById("nivel").innerText = nivel;
+}
+
+// --- Nuevos botones ---
+
+function abrirModal() {
+    document.getElementById("modalInfo").classList.add("activo");
+}
+
+function cerrarModal() {
+    document.getElementById("modalInfo").classList.remove("activo");
+}
+
+function reiniciarProgreso() {
+    if (confirm("¿Seguro que quieres reiniciar todo tu progreso?")) {
+        localStorage.removeItem("ecoCoins");
+        ecoCoins = 0;
+        document.getElementById("coins").innerText = ecoCoins;
+        document.getElementById("lista").innerHTML = "";
+        document.getElementById("insignia").innerText = "Aún no tienes insignias.";
+        actualizarNivel();
+    }
 }
