@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoCocha</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="contenedor">
+
+  <img src="logo.jpg" class="logo">
+
+  <h1>🌎 ECOCOCHA</h1>
+  <h2>♻️ Recicla y gana EcoCoins</h2>
+
+  <div class="perfil">
+    <h3>👤 Usuario: Invitado</h3>
+    <h3>💰 EcoCoins: <span id="coins">0</span></h3>
+    <h3>🌱 Nivel: <span id="nivel">EcoNovato</span></h3>
+  </div>
+
+  <button onclick="init()">
+    📷 Abrir Cámara
+  </button>
+
+  <div id="webcam-container"></div>
+
+  <h2 id="label-container">
+    Esperando detección...
+  </h2>
+
+  <div class="historial">
+    <h3>📊 Historial</h3>
+    <ul id="lista"></ul>
+  </div>
+
+  <div class="insignias">
+    <h3>🏆 Insignias</h3>
+    <p id="insignia">Aún no tienes insignias.</p>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

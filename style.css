@@ -1,0 +1,35 @@
+body{
+  font-family: Arial, sans-serif;
+  background:#f4fff4;
+  text-align:center;
+}
+
+.contenedor{
+  width:90%;
+  margin:auto;
+}
+
+.logo{
+  width:220px;
+  margin-top:20px;
+}
+
+.perfil,
+.historial,
+.insignias{
+  background:white;
+  margin:20px;
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 0 10px lightgray;
+}
+
+button{
+  background:#2e8b57;
+  color:white;
+  border:none;
+  padding:15px 25px;
+  border-radius:10px;
+  font-size:18px;
+  cursor:pointer;
+}
