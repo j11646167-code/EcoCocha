@@ -25,6 +25,9 @@ window.onload = () => {
     actualizarImpacto();
     revisarHoy();
     renderInsignias();
+    actualizarEstadoAnimo();
+    registrarRacha();
+    
 };
 
 async function init() {
@@ -275,4 +278,26 @@ function reiniciarProgreso() {
         actualizarImpacto();
         renderInsignias();
     }
+    function actualizarEstadoAnimo() {
+    const hoy = new Date().toDateString();
+    const wrapper = document.querySelector(".mascota-wrapper");
+    const boca = document.getElementById("boca");
+    const texto = document.getElementById("animoTexto");
+
+    if (ultimaFecha === hoy) {
+        // Ya recicló hoy → contento
+        boca.classList.remove("triste");
+        wrapper.classList.add("contento");
+        setTimeout(() => wrapper.classList.remove("contento"), 1200);
+        texto.innerText = "¡Recicló hoy! 🌟";
+    } else if (racha > 0) {
+        // Tiene racha pero aún no recicló hoy → neutro/preocupado
+        boca.classList.remove("triste");
+        texto.innerText = "Aún no reciclaste hoy, ¡no rompas tu racha!";
+    } else {
+        // Sin racha activa → triste
+        boca.classList.add("triste");
+        texto.innerText = "Tu árbol está esperando que recicles 🥺";
+    }
+}
 }
