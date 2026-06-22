@@ -1,96 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EcoCocha</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoCocha</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-<div id="confetti-container"></div>
+<body onload="init()">
 
-<div class="contenedor">
+    <img src="logo.jpg" class="logo">
 
-  <img src="logo.jpg" class="logo">
+    <div id="webcam-container"></div>
 
-  <h1>🌎 ECOCOCHA</h1>
-  <h2>♻️ Recicla y gana EcoCoins</h2>
+    <div class="deteccion">
+        <h2>Detección</h2>
 
-  <div class="mascota-card">
-    <div class="mascota-card">
-  <div class="mascota-wrapper">
-    <div id="mascota">🌱</div>
-    <div class="cara">
-      <div class="ojo izq"></div>
-      <div class="ojo der"></div>
-      <div class="boca" id="boca"></div>
+        <p id="label-container">
+            Esperando detección...
+        </p>
     </div>
-  </div>
-  <div class="mascota-info">
-    <h3>Tu árbol: <span id="estadoArbol">Brote</span></h3>
-    <h3>🔥 Racha: <span id="racha">0</span> días</h3>
-    <p class="animo-texto" id="animoTexto">¡Listo para reciclar hoy!</p>
-  </div>
 
-  </div>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
-  <div class="perfil">
-    <h3>👤 Usuario: Invitado</h3>
-    <h3>💰 EcoCoins: <span id="coins">0</span></h3>
-    <h3>🌱 Nivel: <span id="nivel">EcoNovato</span></h3>
+    <script src="firebase-config.js"></script>
 
-    <div class="barra-progreso">
-      <div class="barra-fill" id="barraFill"></div>
-    </div>
-    <p class="barra-texto" id="barraTexto">0 / 200 hacia EcoExplorador</p>
-  </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
 
-  <div class="botonera">
-    <button onclick="init()">📷 Abrir Cámara</button>
-    <button class="secundario" onclick="abrirModal()">ℹ️ Cómo funciona</button>
-    <button class="secundario" onclick="compartir()">📤 Compartir</button>
-    <button class="peligro" onclick="reiniciarProgreso()">🔄 Reiniciar</button>
-  </div>
-
-  <div id="webcam-container"></div>
-
-  <h2 id="label-container">Esperando detección...</h2>
-
-  <div class="impacto">
-    <h3>🌍 Impacto ambiental</h3>
-    <p>Has evitado que aprox. <strong id="impactoKg">0</strong> kg de basura lleguen a la calle.</p>
-    <p>📅 Reciclado hoy: <strong id="hoyCount">0</strong> residuos</p>
-  </div>
-
-  <div class="historial">
-    <h3>📊 Historial</h3>
-    <ul id="lista"></ul>
-  </div>
-
-  <div class="insignias">
-    <h3>🏆 Insignias</h3>
-    <div class="insignias-grid" id="insigniasGrid"></div>
-  </div>
-
-</div>
-
-<div class="modal-overlay" id="modalInfo">
-  <div class="modal">
-    <h3>¿Cómo funciona EcoCocha?</h3>
-    <p>Muestra un residuo a la cámara y el sistema lo identifica automáticamente.</p>
-    <p>🥤 Plásticos: 100 EcoCoins<br>
-       🍾 Metales y vidrio: 70 EcoCoins<br>
-       📦 Papeles y cartones: 50 EcoCoins<br>
-       🍌 Orgánicos: 30 EcoCoins</p>
-    <p>🔥 Clasifica tu basura todos los días para mantener tu racha y hacer crecer tu árbol.</p>
-    <button onclick="cerrarModal()">Entendido</button>
-  </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
-</html> 
+</html>
