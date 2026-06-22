@@ -10,6 +10,8 @@ async function init() {
     const metadataURL = URL + "metadata.json";
 
     model = await tmImage.load(modelURL, metadataURL);
+    console.log("Modelo cargado");
+    console.log (model.getClassLabels());
 
     const flip = true;
 
@@ -17,6 +19,7 @@ async function init() {
 
     await webcam.setup();
     await webcam.play();
+    console.log("Cámara iniciada");
 
     window.requestAnimationFrame(loop);
 
@@ -30,10 +33,11 @@ async function loop() {
 }
 
 async function predict() {
-
+console.log ("Detectando...");
     const prediction = await model.predict(webcam.canvas);
 
     let mayor = prediction[0];
+    console.log(prediction);
 
     for (let i = 1; i < prediction.length; i++) {
         if (prediction[i].probability > mayor.probability) {
