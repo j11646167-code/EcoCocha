@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+    <h1>📋 Historial</h1>
+
+    <ul id="lista"></ul>
+
+    <button onclick="window.location='menu.html'">
+        Volver
+    </button>
+</div>
+
+<!-- Scripts de Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAjk0SrVY2fFANvCnw7YuPvXUWc2kZRATY",
+    authDomain: "ecococha.firebaseapp.com",
+    databaseURL: "https://ecococha-default-rtdb.firebaseio.com",
+    projectId: "ecococha",
+    storageBucket: "ecococha.firebasestorage.app",
+    messagingSenderId: "464213105297",
+    appId: "1:464213105297:web:2232543627c2bf8445fd30",
+    measurementId: "G-FRF0PK6FVS"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+</script>
+
+<!-- Tu lógica de la aplicación -->
+<script src="app.js"></script>
+
+</body>
+</html>
