@@ -5,25 +5,38 @@ let webcam;
 let ultimo = "";
 
 async function init() {
+    try {
+        document.getElementById("label-container").innerHTML =
+            "Cargando modelo...";
 
-    const modelURL = URL + "model.json";
-    const metadataURL = URL + "metadata.json";
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
 
-    model = await tmImage.load(modelURL, metadataURL);
-    console.log("Modelo cargado");
-    console.log (model.getClassLabels());
+        model = await tmImage.load(modelURL, metadataURL);
 
-    const flip = true;
+        document.getElementById("label-container").innerHTML =
+            "Abriendo cámara...";
 
-    webcam = new tmImage.Webcam(300, 300, flip);
+        const flip = true;
+        webcam = new tmImage.Webcam(300, 300, flip);
 
-    await webcam.setup();
-    await webcam.play();
-    console.log("Cámara iniciada");
+        await webcam.setup();
+        await webcam.play();
 
-    window.requestAnimationFrame(loop);
+        document.getElementById("webcam-container").innerHTML = "";
+        document.getElementById("webcam-container")
+            .appendChild(webcam.canvas);
 
-    document.getElementById("webcam-container").appendChild(webcam.canvas);
+        document.getElementById("label-container").innerHTML =
+            "Esperando detección...";
+
+        window.requestAnimationFrame(loop);
+    } catch (error) {
+        console.error(error);
+
+        document.getElementById("label-container").innerHTML =
+            "❌ Error al cargar el modelo o la cámara";
+    }
 }
 
 async function loop() {
@@ -33,11 +46,9 @@ async function loop() {
 }
 
 async function predict() {
-console.log ("Detectando...");
     const prediction = await model.predict(webcam.canvas);
 
     let mayor = prediction[0];
-    console.log(prediction);
 
     for (let i = 1; i < prediction.length; i++) {
         if (prediction[i].probability > mayor.probability) {
@@ -45,7 +56,8 @@ console.log ("Detectando...");
         }
     }
 
-    if (mayor.probability > 0.60 && ultimo !== mayor.className) {
+    if (mayor.probability > 0.50 &&
+        ultimo !== mayor.className) {
 
         ultimo = mayor.className;
 
@@ -54,30 +66,24 @@ console.log ("Detectando...");
         if (mayor.className === "Plásticos") {
             mensaje = "♻️ Plástico detectado";
         }
-
         else if (mayor.className === "Papel y Cartón") {
             mensaje = "📄 Papel y cartón detectados";
         }
-
         else if (mayor.className === "Vidrio y Metal") {
             mensaje = "🍾 Vidrio y metal detectados";
         }
-
         else if (mayor.className === "Residuos Orgánicos") {
             mensaje = "🍃 Residuo orgánico detectado";
         }
-
         else if (mayor.className === "Ninguno") {
-            mensaje = "❌ no se detectó ningún residuo";
+            mensaje = "❌ Objeto no reciclable";
+        }
+        else {
+            mensaje = mayor.className;
         }
 
-        document.getElementById("label-container").innerHTML = mensaje;
-        if (typeof db !== "undefined") {
-    db.ref("detecciones").push({
-        material: mayor.className,
-        fecha: new Date().toLocaleString()
-    });
-}
+        document.getElementById("label-container").innerHTML =
+            mensaje;
 
         if (typeof db !== "undefined") {
             db.ref("detecciones").push({
@@ -87,7 +93,3 @@ console.log ("Detectando...");
         }
     }
 }
-window.onload = function () {
-    init();
-} 
- 
