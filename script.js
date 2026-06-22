@@ -45,7 +45,7 @@ console.log ("Detectando...");
         }
     }
 
-    if (mayor.probability > 0.90 && ultimo !== mayor.className) {
+    if (mayor.probability > 0.60 && ultimo !== mayor.className) {
 
         ultimo = mayor.className;
 
@@ -89,4 +89,5 @@ console.log ("Detectando...");
 }
 window.onload = function () {
     init();
-};
+} 
+ 
