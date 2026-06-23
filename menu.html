@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>EcoCocha</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -13,6 +13,13 @@
     <img src="logo.png" class="logo">
 
     <h2>🌱 Mi EcoCocha</h2>
+
+    <div class="pin-box">
+        <h3>🔑 Código de cuenta</h3>
+        <input type="text" id="pinInput" placeholder="Ej: 1234" maxlength="6">
+        <button onclick="guardarPin()">Conectar</button>
+        <p id="pinEstado"></p>
+    </div>
 
     <h3>EcoCoins</h3>
     <h1 id="coins">0</h1>
@@ -30,6 +37,9 @@
 
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script src="firebase-config.js"></script>
 <script src="app.js"></script>
 
 </body>

@@ -1,28 +1,118 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background: #0F2A22;
+    text-align: center;
+    min-height: 100vh;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.card{
+    background: #1A3F33;
+    width: 90%;
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 26px;
+    border-radius: 26px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    color: #EAF4EE;
+}
+
+.logo{
+    width: 110px;
+}
+
 .pin-box{
-    background: #2e8b57;
-    color: white;
-    width: 300px;
-    margin: 20px auto;
-    padding: 15px;
-    border-radius: 20px;
+    background: #B8F2C9;
+    color: #0F2A22;
+    width: 100%;
+    margin: 15px 0;
+    padding: 12px;
+    border-radius: 18px;
+    box-sizing: border-box;
 }
 
 .pin-box input{
     padding: 8px;
     border-radius: 10px;
-    border: none;
+    border: 1px solid #0F2A22;
     width: 100px;
     text-align: center;
     font-size: 16px;
 }
 
 .pin-box button{
-    background: white;
-    color: #2e8b57;
+    background: #0F2A22;
+    color: #B8F2C9;
     border: none;
     padding: 8px 14px;
     border-radius: 10px;
     margin-left: 8px;
     cursor: pointer;
+}
+
+button{
+    background: #8FE3A6;
+    color: #0F2A22;
+    border: none;
+    padding: 13px 26px;
+    border-radius: 18px;
+    font-size: 16px;
     font-weight: bold;
+    cursor: pointer;
+    margin-top: 16px;
+}
+
+button:hover{
+    background: #B8F2C9;
+}
+
+.planta{
+    width: 90px;
+    animation: mover 2s infinite alternate;
+}
+
+@keyframes mover{
+    from{ transform: translateY(0px); }
+    to{ transform: translateY(-8px); }
+}
+
+#coins{
+    color: #8FE3A6;
+    font-size: 42px;
+    margin: 4px 0;
+}
+
+#nivel{
+    background: #5C4632;
+    color: #EAF4EE;
+    padding: 10px;
+    border-radius: 18px;
+    margin-top: 16px;
+}
+
+ul{
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    background: #5C4632;
+    border-radius: 18px;
+    padding: 10px;
+}
+
+ul li{
+    background: #B8F2C9;
+    color: #0F2A22;
+    padding: 10px 14px;
+    border-radius: 14px;
+    margin-bottom: 8px;
+    font-size: 14px;
 }

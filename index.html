@@ -1,40 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoCocha</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoCocha App</title>
+<link rel="stylesheet" href="style.css">
 </head>
+<body class="inicio">
 
-<body>
+<div class="card">
+    <img src="logo.png" class="logo">
 
-    <img src="logo.jpg" class="logo">
+    <h1>EcoCocha</h1>
+    <p>Recicla y cuida el planeta 🌎♻️</p>
 
-    <div class="pin-box">
-        <h3>🔑 Código de cuenta</h3>
-        <input type="text" id="pinInput" placeholder="Ej: 1234" maxlength="6">
-        <button onclick="guardarPin()">Conectar e iniciar cámara</button>
-        <p id="pinEstado"></p>
-    </div>
-
-    <div id="webcam-container"></div>
-
-    <div class="deteccion">
-        <h2>Detección</h2>
-        <p id="label-container">
-            Ingresa tu código para empezar
-        </p>
-    </div>
-
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
-    <script src="firebase-config.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-
-    <script src="script.js"></script>
+    <button onclick="window.location='menu.html'">
+        Entrar
+    </button>
+</div>
 
 </body>
 </html>
